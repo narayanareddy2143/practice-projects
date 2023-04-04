@@ -8,7 +8,7 @@ pipeline
 	stages{
 		stage('Code Checkout'){
 			steps{
-				git branch: 'main', url: 'https://github.com/Devops9AM/Docker-Web-App.git'
+				git branch: 'main', url: 'https://github.com/narayanareddy2143/Devops-Web-Apps.git'
 
 			}
 		}
@@ -27,7 +27,7 @@ pipeline
 
 		stage("Copying the War file to Job Location"){
 			steps{
-				sh 'cp /var/lib/jenkins/workspace/4444/target/*.war /var/lib/jenkins/workspace/4444' 
+				sh 'cp /var/lib/jenkins/workspace/narayana-pipline-job/target/*.war /var/lib/jenkins/workspace/narayana-pipline-job'
 
 		}
 	}
@@ -38,7 +38,7 @@ pipeline
 	             }
 	   stage("Docker Image taging"){
 			steps{
-			sh 'docker image tag $JOB_NAME:v1.$BUILD_ID thanish/$JOB_NAME:v1.$BUILD_ID'
+			sh 'docker image tag $JOB_NAME:v1.$BUILD_ID narayanareddy143/$JOB_NAME:v1.$BUILD_ID'
 			
 		}
 
@@ -46,9 +46,9 @@ pipeline
 		stage("push Image: DOCKERHUB"){
              steps{
 
-                withCredentials([string(credentialsId: 'DockerPassword', variable: 'DockerPassword')]) {
-                sh 'docker login -u thanish -p ${DockerPassword}'
-                sh 'docker image push thanish/$JOB_NAME:v1.$BUILD_ID'
+                withCredentials([string(credentialsId: 'Dockerpassword', variable: 'Dockerpassword')]) {
+                sh 'docker login -u narayanareddy143 -p ${Dockerpassword}'
+                sh 'docker image push narayanareddy143/$JOB_NAME:v1.$BUILD_ID'
                 
               }
          }
