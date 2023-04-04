@@ -3,7 +3,7 @@ pipeline {
 	stages{
 		stage("Git Checkout"){
 		 steps{
-		  git  branch: 'main', url: 'https://github.com/Devops9AM/Pipe-Line-Project.git'
+		  git  branch: 'main', url: 'https://github.com/narayanareddy2143/practice-projects.git'
 		  }
 		}
 		  }
