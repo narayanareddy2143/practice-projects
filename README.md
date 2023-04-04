@@ -1,1 +1,1 @@
-# Devops-Web-Apps
+# practice-projects
